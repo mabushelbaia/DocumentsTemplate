@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage[all, stdclass]{lix}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{
+  inkscapepath=assets/,  % Path to the directory containing your SVG files
+  svgpath=assets/        % Path to the directory containing your SVG files
+}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{amsmath}
+
+
+%----------EDIT COVER INFO HERE -----------------%
+
+\def \LOGOPATH {assets/birzeit-logo.png}
+\def \DEPARTEMENT {Department of Electrical \& Computer Engineering}
+\def \COURSENUM {ENEE2103}
+\def \COURSENAME {- Laboratory}
+\def \REPORTTITLE {-}
+\def \STUDENTNAME {Mohammad Abu-Shelbaia}
+\def \STUDENTID {1200198}
+\def \INSTRUCTOR {Dr. }
+\def \ASSISTANT {Eng. }
+\def \REPORTNUM {- }
+
+%--------------------BORDERS----------------------------%
+% \usepackage{parskip}
+% \setlength{\parskip}{0pt}
+% \geometry{top=1.54cm}
+% \usepackage{everyshi}
+% \usepackage{tikz}
+% \EveryShipout{%
+%     \begin{tikzpicture}[overlay,remember picture]
+%         \draw [line width=0.5pt]
+%             ($ (current page.north west) + (1cm,-1cm) $)
+%             rectangle
+%             ($ (current page.south east) + (-1cm,1cm) $);
+%     \end{tikzpicture}
+% }
+%------------------------------------------------%
+\begin{document}
+\pagenumbering{Roman}
+
+\begin{titlepage}
+    \vfill
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{\LOGOPATH} \\
+        \hfill \\
+        \Large{\DEPARTEMENT} \\
+        \Large{\COURSENUM\;-\;\COURSENAME} \\
+        \vfill
+        \textbf{\LARGE{Experiment \#\REPORTNUM}} \\
+        \textbf{\LARGE{\REPORTTITLE}}
+    \end{center}
+    \vfill
+    \begin{flushleft}
+        \Large{\textbf{Prepared by:}\\ \STUDENTNAME\quad\STUDENTID} \\
+
+        \Large{\textbf{Instructor:} \INSTRUCTOR} \\
+        \Large{\textbf{Assistant:} \ASSISTANT} \\
+        \Large{\textbf{Section:} 4}\\
+        \LARGE{\textbf{ }}\\
+        \LARGE{\textbf{ }}\\
+        \LARGE{\textbf{ }}\\
+        \Large{\textbf{Date:} \today}\\
+    \end{flushleft}
+    \vfill
+\end{titlepage}
+
+
+%--------------- TABLES --------------------------------%
+\tableofcontents
+\clearpage
+\setlength{\parskip}{\baselineskip}%
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+%-------------- CONTENT ---------------------%
+\h{Simulation and Data Analysis}
+\hh{Introduction}
+\hh{Simulation}
+\hh{Data Analysis}
+\h{Conclusion}
+\h{References}
+\end{document}
+
+
+
+
+
