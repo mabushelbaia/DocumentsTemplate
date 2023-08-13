@@ -2,6 +2,9 @@
 \usepackage[all, stdclass]{lix}
 \usepackage{graphicx}
 \usepackage{svg}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usepackage{bookmark}
 \svgsetup{
   inkscapepath=assets/,  % Path to the directory containing your SVG files
   svgpath=assets/        % Path to the directory containing your SVG files
@@ -9,7 +12,7 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{times}
-\usepackage{amsmath}
+\usepackage{graphicx}
 
 
 %----------EDIT COVER INFO HERE -----------------%
@@ -17,13 +20,17 @@
 \def \LOGOPATH {assets/birzeit-logo.png}
 \def \DEPARTEMENT {Department of Electrical \& Computer Engineering}
 \def \COURSENUM {ENEE2103}
-\def \COURSENAME {- Laboratory}
-\def \REPORTTITLE {-}
+\def \COURSENAME {Circuits and Electronics Laboratory}
+\def \REPORTTITLE {Filters}
 \def \STUDENTNAME {Mohammad Abu-Shelbaia}
+\def \PARTNERAN {Nidal Zabade}
+\def \PARTNERBN {Mahmoud Shihab}
+\def \PARTNERAID {1200153}
+\def \PARTNERBID {1180000}
 \def \STUDENTID {1200198}
-\def \INSTRUCTOR {Dr. }
-\def \ASSISTANT {Eng. }
-\def \REPORTNUM {- }
+\def \INSTRUCTOR {Dr. Mahran Quran }
+\def \ASSISTANT {Eng. Raffah Rahal}
+\def \REPORTNUM {5}
 
 %--------------------BORDERS----------------------------%
 % \usepackage{parskip}
@@ -40,8 +47,9 @@
 %     \end{tikzpicture}
 % }
 %------------------------------------------------%
+
+
 \begin{document}
-\pagenumbering{Roman}
 
 \begin{titlepage}
     \vfill
@@ -57,7 +65,11 @@
     \vfill
     \begin{flushleft}
         \Large{\textbf{Prepared by:}\\ \STUDENTNAME\quad\STUDENTID} \\
-
+        \Large{\textbf{Partners:}\\ 
+        \begin{tabular}{@{}l@{\quad}l}
+            \PARTNERAN & \PARTNERAID \\
+            \PARTNERBN & \PARTNERBID \\
+        \end{tabular}} \\
         \Large{\textbf{Instructor:} \INSTRUCTOR} \\
         \Large{\textbf{Assistant:} \ASSISTANT} \\
         \Large{\textbf{Section:} 4}\\
@@ -69,7 +81,14 @@
     \vfill
 \end{titlepage}
 
-
+\clearpage
+% --------------- ABSTRACT ------------------%
+\begin{abstract}
+    \noindent
+    \textbf{Abstract:} \\
+    \textbf{Keywords:} \\
+\end{abstract}
+\clearpage
 %--------------- TABLES --------------------------------%
 \tableofcontents
 \clearpage
@@ -80,12 +99,128 @@
 \clearpage
 \pagenumbering{arabic}
 %-------------- CONTENT ---------------------%
-\h{Simulation and Data Analysis}
-\hh{Introduction}
-\hh{Simulation}
-\hh{Data Analysis}
+\h{Theory}
+Filters in circuits allow ciruin frequincies to pass through while blocking undesired frequencies. Filters are classified into two types: passive and active filters. Passive filters are made of passive components such as resistors, capacitors, and inductors. Active filters are made of active components such as transistors and op-amps. A filter order is the number of reactive components in the filter.
+Furthermore, filters have four basic types: low pass, high pass, band pass, and band stop. 
+\hh{Passive Filters}
+\hhh{Low Pass Filter}
+As the name suggests, this type of filters allow low frequencies to pass through while blocking high frequencies.
+\begin{figure}[H]
+    \centering
+    \resizebox{0.40\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    % \draw (-13,13) to[short, -*] (-13,13);
+    \draw (-5,7) to[R] (-2.25,7);
+    \draw (-2.25,7) to[C] (-2.25,4.75);
+    \draw[] (-2.25,4.75) to[short] (-5,4.75);
+    \draw [](-2.5,4.75) to[short] (-1,4.75);
+    \draw [](-2.25,7) to[short] (-1,7);
+    \draw [](-5,7) to[short, -o] (-5.25,7);
+    \draw [](-5,4.75) to[short, -o] (-5.25,4.75);
+    \draw [](-1,4.75) to[short, -o] (-0.75,4.75);
+    \draw [](-1.25,7) to[short, -o] (-0.75,7);
+    \node [font=\large] at (-5.25,5.875) {Vi};
+    \node [font=\large] at (-0.5,5.875) {Vo};
+    \end{circuitikz}
+    }
+    \resizebox{0.40\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    % \draw (-13,13) to[short, -*] (-13,13);
+    \draw (-5,7) to[L] (-2.25,7);
+    \draw (-2.25,7) to[R] (-2.25,4.75);
+    \draw[] (-2.25,4.75) to[short] (-5,4.75);
+    \draw [](-2.5,4.75) to[short] (-1,4.75);
+    \draw [](-2.25,7) to[short] (-1,7);
+    \draw [](-5,7) to[short, -o] (-5.25,7);
+    \draw [](-5,4.75) to[short, -o] (-5.25,4.75);
+    \draw [](-1,4.75) to[short, -o] (-0.75,4.75);
+    \draw [](-1.25,7) to[short, -o] (-0.75,7);
+    \node [font=\large] at (-5.25,5.875) {Vi};
+    \node [font=\large] at (-0.5,5.875) {Vo};
+    \end{circuitikz}
+    }
+    \label{fig:Low-Pass}
+    \caption{$1^{st}$ Order Passive Low-Pass filters}
+\end{figure}
+% \begin{equation} \label{eq1}
+\begin{equation}
+\begin{aligned}
+            V_o &= \frac{X_c}{X_c + X_r} \times V_i  \quad\quad &V_o &= \frac{X_r}{X_r + X_l} \times V_i\\
+            X_c &= \frac{1}{j\omega c}  &X_l &= j\omega l
+\end{aligned}
+\end{equation}
+% \end{equation}
+The freqeuncy is inversely proportinal to the impedance $X_c$, and $X_c$ is directly proportinal to $V_o$, and by the same logic the frequency is directly proportinal to $X_l$, and $X_l$ is inversely proportinal to $V_o$, which indicates that higher freqeuncies generate low voltage (reject), and low freqeuncies generate high voltage (pass).\\ \\
+The cut-off frequency is the frequency at which point of inversion occurs, which indeicates what a high and low frequeinces are,and its given by:
+\begin{equation}
+    \begin{aligned}
+        f_c = \frac{1}{2\pi R C} \quad\quad or \quad\quad f_c = \frac{R}{2\pi L}
+    \end{aligned}
+\end{equation}
+\hhh{High Pass Filter}
+This type of filter is a complement of the low-pass filter, since it rejects low frequeinces  and passes high ones.
+\begin{figure}[H]
+    \centering
+    \resizebox{0.40\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    % \draw (-13,13) to[short, -*] (-13,13);
+    \draw (-5,7) to[C] (-2.25,7);
+    \draw (-2.25,7) to[R] (-2.25,4.75);
+    \draw[] (-2.25,4.75) to[short] (-5,4.75);
+    \draw [](-2.5,4.75) to[short] (-1,4.75);
+    \draw [](-2.25,7) to[short] (-1,7);
+    \draw [](-5,7) to[short, -o] (-5.25,7);
+    \draw [](-5,4.75) to[short, -o] (-5.25,4.75);
+    \draw [](-1,4.75) to[short, -o] (-0.75,4.75);
+    \draw [](-1.25,7) to[short, -o] (-0.75,7);
+    \node [font=\large] at (-5.25,5.875) {Vi};
+    \node [font=\large] at (-0.5,5.875) {Vo};
+    \end{circuitikz}
+    }
+    \resizebox{0.40\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    % \draw (-13,13) to[short, -*] (-13,13);
+    \draw (-5,7) to[R] (-2.25,7);
+    \draw (-2.25,7) to[L] (-2.25,4.75);
+    \draw[] (-2.25,4.75) to[short] (-5,4.75);
+    \draw [](-2.5,4.75) to[short] (-1,4.75);
+    \draw [](-2.25,7) to[short] (-1,7);
+    \draw [](-5,7) to[short, -o] (-5.25,7);
+    \draw [](-5,4.75) to[short, -o] (-5.25,4.75);
+    \draw [](-1,4.75) to[short, -o] (-0.75,4.75);
+    \draw [](-1.25,7) to[short, -o] (-0.75,7);
+    \node [font=\large] at (-5.25,5.875) {Vi};
+    \node [font=\large] at (-0.5,5.875) {Vo};
+    \end{circuitikz}
+    }
+    \label{fig:High-Pass}
+    \caption{$1^{st}$ Order Passive High-Pass filters}
+\end{figure}
+\begin{equation}
+    \begin{aligned}
+                V_o &= \frac{X_r}{X_c + X_r} \times V_i  \quad\quad &V_o &= \frac{X_l}{X_r + X_l} \times V_i\\
+                X_c &= \frac{1}{j\omega c}  &X_l &= j\omega l
+    \end{aligned}
+    \end{equation}
+According to the above equations, the frequency is inversely proportinal to the impedance $X_c$, and $X_c$ is inversely proportinal to $V_o$, and by the same logic the frequency is directly proportinal to $X_l$, and $X_l$ is directly proportinal to $V_o$, which indicates that higher freqeuncies generate high voltage (pass), and low freqeuncies generate low voltage (reject).\\ \\
+The cut-off frequency is the frequency at which point of inversion occurs, which indeicates what a high and low frequeinces are,and its given by:
+\begin{equation}
+    \begin{aligned}
+        f_c = \frac{1}{2\pi R C} \quad\quad or \quad\quad f_c = \frac{R}{2\pi L}
+    \end{aligned}
+\end{equation}
+\hhh{Band Pass Filter}
+\hhh{Band Stop Filter}
+\hh{Active Filters}
+\h{Procedure and Data Analysis}
+\h{Discussion}
 \h{Conclusion}
 \h{References}
+\h{Appendix}
 \end{document}
 
 
