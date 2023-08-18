@@ -21,16 +21,16 @@
 \def \DEPARTEMENT {Department of Electrical \& Computer Engineering}
 \def \COURSENUM {ENEE4113}
 \def \COURSENAME {Communications Laboratory}
-\def \REPORTTITLE {Frequency Modulation}
+\def \REPORTTITLE {Phase Modulation}
 \def \STUDENTNAME {Mohammad Abu-Shelbaia}
 \def \STUDENTID {1200198}
 \def \INSTRUCTOR {Dr. Ibrahim Nemer}
 \def \ASSISTANT {Eng. Mohammad Al-Battat}
 \def \PARTNERAN {Taher Hasan}
-\def \PARTNERAID {119XXXX}
+\def \PARTNERAID {1191740}
 \def \PARTNERBN {Yazan Shrouf}
-\def \PARTNERBID {1191740}
-\def \REPORTNUM {4}
+\def \PARTNERBID {1190145}
+\def \REPORTNUM {5}
 
 \begin{document}
 \pagenumbering{Roman}
@@ -150,7 +150,7 @@ The instantaneous freqeuncy of the PM Singal is:
 To generate a PM Singal, we use an oscillator to generate the carrier signal and then modulate the phase of the carrier with the message signal. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{assets/mod.png}
+    \includegraphics[width=0.8\textwidth]{assets/mod.png}
     \caption{Phase Modulation}
     \cite{Prelab}
 \end{figure}
@@ -179,7 +179,7 @@ For demodulation, a common method is the phase-locked loop (PLL) a feedback syst
 % \begin{equation}
 %     s(t) = A_c \sum_{n=-\infty}^{\infty} J_n(\beta) \cos({\omega}_c t + n{\omega}_m t)
 % \end{equation}
-% In order to find the bandwidth of the FM signal that achieves a certain percentage of the total power, the following equation can be used:
+% To find the bandwidth of the FM signal that achieves a certain percentage of the total power, the following equation can be used:
 % \begin{equation}
 %     J_0^{2}(\beta) + 2\sum_{n=1}^{m} J_n^{2}(\beta) = p
 % \end{equation}
@@ -191,6 +191,7 @@ For demodulation, a common method is the phase-locked loop (PLL) a feedback syst
 % Zero Crossing is a method to get rid of the carrier spectra,
 % and since the spectral components are proportional to the Bessel functions, the zero crossing of the carrier signal occurs when the Bessel function is zero $J_0(\beta) = 0$. 
 % \clearpage
+\clearpage
 \h{Procedure and Data Analysis}
 \hh{Modulation}
 In this part, we modulated a message signal having 2V VSS and 1kHz frequency over a carrier with 20kHz frequency.
@@ -201,7 +202,7 @@ In this part, we modulated a message signal having 2V VSS and 1kHz frequency ove
     \caption{Time Domain}
 \end{figure}
 \hhh{Frequency Domain}
-In order to set the carrier frequency to 20kHz, we set the message signal to 0, so the modulated signal is just the carrier signal.
+To set the carrier frequency to 20kHz, we set the message signal to 0, so the modulated signal is just the carrier signal.
 \begin{equation}
     \begin{aligned}
         s(t) &= A_c \cos({\omega}_c t + k_p\times m(t)) \\
@@ -214,7 +215,7 @@ In order to set the carrier frequency to 20kHz, we set the message signal to 0, 
     \includegraphics[width=0.7\textwidth]{assets/frequency_domain.png}
     \caption{Frequency Domain}
 \end{figure}
-From the graph above $f_C = 19.91kHz$, furthermore,we noticed that the modulated signal isn't affected by the amplitude of the message signal, but the frequency of the message signal affects the frequency of the modulated signal.
+From the graph above $f_C = 19.91kHz$, furthermore, we noticed that the modulated signal isn't affected by the amplitude of the message signal, but the frequency of the message signal affects the frequency of the modulated signal.
 \hhh{Setting Carrier Frequency}
 
 \hhh{Characteristics of the FM Modulator}
@@ -276,7 +277,7 @@ We noticed that the spectrum keeps repeating itself, and the period of repetitio
 \hhh{Time Domain Demodulatio} 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{assets/p5.png}
+    \includegraphics[width=0.7\textwidth]{assets/p5.png}
     \caption{Demodulated Signal in time domain}
 \end{figure}
 \begin{figure}[H]
@@ -307,10 +308,10 @@ We have recoverd the message signal, hence PLL is working with PM, and the demod
     \caption{$\tau_1$, $\tau_2$ vs frequency}
 \end{figure}
 We notice that $\tau_1$ and $\tau_2$ are inversely proportional to the frequency, and that $\tau_1$ is always greater than $\tau_2$.
+\clearpage
 \h{Conclusion}
 In conclusion, we have studied the PM modulators and demodulators, the effect of the message signal on the modulated signal, the effect of the frequency on the modulated signal, and Nthe effect of the loop filter on the PLL.
 \clearpage
-\h*{References}
 \bibliographystyle{plain}
 \bibliography{ref}
 \end{document}
