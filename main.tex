@@ -23,12 +23,12 @@
 \def \DEPARTEMENT {Department of Electrical \& Computer Engineering}
 \def \COURSENUM {ENEE4113}
 \def \COURSENAME {Communications Laboratory}
-\def \REPORTTITLE {Ampiltude Shift Keying (ASK)}
+\def \REPORTTITLE {Frequency Shift Keying (FSK) and Phase Shift Keying (PSK)}
 \def \STUDENTNAME {Mohammad Abu-Shelbaia}
 \def \STUDENTID {1200198}
 \def \INSTRUCTOR {Dr. Ibrahim Nemer}
 \def \ASSISTANT {Eng. Mohammad Al-Battat}
-\def \REPORTNUM {10}
+\def \REPORTNUM {11}
 
 \begin{document}
 \pagenumbering{Roman}
@@ -71,20 +71,25 @@
 \pagenumbering{arabic}
 %-------------- CONTENT ---------------------%
 \h{Simulation and Data Analysis}
+\hh{Frequency Shift Keying (FSK)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{assets/main/2023-08-23-18-30-59.png}
+    \includegraphics[width=1\textwidth]{assets/main/2023-08-27-14-39-32.png}
     \caption{Modulation/Demodulation Simulink Block Diagram}
 \end{figure}
-The above system is simulated using MATLAB Simulink for different messages modulated over a carrier signal with a frequency of 20KHz.
+The above system is simulated using MATLAB Simulink for different messages modulated over two carrier signal:
 \begin{equation}
-    c(t) = \cos(2\pi(20k)t)
+    c(t) = \cos(2\pi(15k)t)
 \end{equation}
-\hh{Input Signals}
+\begin{equation}
+    c(t) = \cos(2\pi(25k)t)
+\end{equation}
+\hhh{Input Signals}
+
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.23\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-18-56-06.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-23-18-56-06.png}
     }
     \resizebox{0.49\textwidth}{0.23\textwidth}{
         \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-13-47.png}
@@ -94,174 +99,131 @@ The above system is simulated using MATLAB Simulink for different messages modul
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.23\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-18-54-41.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-45-47.png}
     }
     \resizebox{0.49\textwidth}{0.23\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/main/2023-08-23-18-51-29.png.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-46-27.png}
     }
-    \caption{Carrier Signal}
-\end{figure}
-\hh{Charchterstics of the ASK Modulated Signal}
-To observer the characteristics of the ASK modulated signal, we are going to modulate a signal with low-voltage (0V) and high-voltage (2.5V) over the same carrier.
-
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-23-47.png}
-    }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-24-12.png}
-    }
-    \caption{Low voltage Modulating Signal (0V)}
+    \caption{Carrier1 Signal}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-28-33.png}
+    \resizebox{0.49\textwidth}{0.23\textwidth}{
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-46-15.png}
     }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets//main/2023-08-23-19-28-50.png}
+    \resizebox{0.49\textwidth}{0.23\textwidth}{
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-46-46.png}
     }
-    \caption{High voltage Modulating Signal (2.5V)}
-
+    \caption{Carrier2 Signal}
 \end{figure}
-We observed that whenever we send a high voltage signal, the carrier singal is transmitted as it is, and whenever we send a low voltage signal nothing is transmitted (zero signal).
-
-\hh{Modulation and Demodulation}
-\hhh{Refrence Modulating Signal}
+\hhh{Modulation and Demodulation}
+\textbf{Refrence Modulating Signal}
 This is our refrence modulating signal, which is a pulse-train with a frequency of 1KHz, duty cycle of 50\%, and an amplitude of 5V.
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-39-25.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-51-24.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-39-38.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-51-47.png}
     }
     \caption{Modulated Singal}
 \end{figure}
-We can see that the modulated signal is a cosine wave when the message signal is high, and zero when the message signal is low.
+We can see that the modulated signal is a cosine wave with two different frequencies, 15KHz and 25KHz, each frequency is used to represent a bit, 0 or 1, the high frequency is used to represent 0, and the low frequency is used to represent 1.
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-43-20.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-27-14-55-35.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-43-35.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-27-14-56-11.png}
     }
-    \caption{Demodulaed Singal Method 1}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets//main/2023-08-23-19-47-11.png}
-        }
-        \resizebox{0.49\textwidth}{0.25\textwidth}{
-            \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-45-03.png}
-    }
-    \caption{Demodulated Singal Method 2}
+    \caption{Demodulaed Singal}
 \end{figure}
 We can see that we have successfully demodulated the signal using both methods, the high portion of the message singal is recoverd as 1, and the low portion is recovered as 0.
-\hhh{1.5V Modulating Signal}
+\textbf{2V Modulating Signal}
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-51-55.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-58-51.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-51-44.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-59-12.png}
     }
-    \caption{Modulated Singal (1.5V)}
+    \caption{Modulated Singal (2V)}
+\end{figure}
+We can see that the amplitude of the modulating signal does not affect the modulated signal.
+\begin{figure}[H]
+    \centering
+    \resizebox{0.49\textwidth}{0.25\textwidth}{
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-59-43.png}
+    }
+    \resizebox{0.49\textwidth}{0.25\textwidth}{
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-14-59-36.png}
+    }
+    \caption{Demodulated Singal (2V)}
 \end{figure}
 
-We can see that the modulated signal amplitude is lower, but the same characteristics are still there.
+We can see the same results as before, and we conclude that the amplitude of the modulating signal does not affect the demodulation process. \\
+\textbf{500Hz Modulating Signal}
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-54-01.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-27-15-07-58.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets//main/2023-08-23-19-54-17.png}
-    }
-    \caption{Demodulated Singal Method 1 (1.5V)}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-54-42.png}
-    }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-19-55-03.png}
-    }
-    \caption{Demodulated Singal Method 2 (1.5V)}
-\end{figure}
-We can see the same results as before, the high portion of the message singal is recoverd as one, and the low portion is recovered as zero.
-\hhh{500Hz Modulating Signal}
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-04-04.png}
-    }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-04-20.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-27-15-08-09.png}
     }
     \caption{Modulated Singal (500Hz)}
 \end{figure}
-We can see that the modulated signal is just more dense, but the same characteristics are still there.
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-08-22.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-15-16-04.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-09-05.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-15-08-24.png}
     }
-    \caption{Demodulated Singal Method 1 (500Hz)}
+    \caption{Demodulated Singal (500Hz)}
 \end{figure}
+Here the freqeuncy deviation (The space between pulses) is lower which saves bandwidth. \clearpage
+\textbf{0.10 Duty-Cycle Modulating Signal}
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-08-13.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-15-19-38.png}
+
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-09-13.png}
-    }
-    \caption{Demodulated Singal Method 2 (500Hz)}
-\end{figure}
-We were able to recover the message signal dispite the low frequency.
-\hhh{0.10 Duty-Cycle Modulating Signal}
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-12-09.png}
-    }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-12-37.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-15-19-59.png}
+
     }
     \caption{Modulated Singal (10\% Duty Cycle)}
 \end{figure}
-We notice the the cosine repeated for only 2 times on the high portion of the message signal, and we further noticed that spectrum of the modulated signal is more dense with more frequencies.
+We notice that the duty cycle of the modulating signal does not affect the modulated signal in simulation but it might affect it in real life since it looks like a noise to the modulated signal.
 \begin{figure}[H]
     \centering
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-16-16.png}
+        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-16-16.png}
     }
     \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-16-39.png}
+        \includegraphics[width=\textwidth]{assets//main/2023-08-27-15-20-24.png}
     }
-    \caption{Demodulated Singal Method 1  (10\% Duty Cycle)}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-    \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-16-16.png}
-    }
-    \resizebox{0.49\textwidth}{0.25\textwidth}{
-        \includegraphics[width=\textwidth]{assets/main/2023-08-23-20-16-39.png}
-    }
-    \caption{Demodulated Singal Method 2  (10\% Duty Cycle)}
+    \caption{Demodulated Singal (10\% Duty Cycle)}
 \end{figure}
 We can see as all the previous parts we were able to recover the message correctly, the high portion of the message singal is recoverd as one, and the low portion is recovered as zero.
+\hh{Phase Shift Keying (PSK)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{assets//main/2023-08-27-16-46-40.png}
+    \caption{Modulation/Demodulation Simulink Block Diagram}
+\end{figure}
+The above system is simulated using MATLAB Simulink for different messages modulated over one carrier signal with a phase shift of 180 degrees:
+\begin{equation}
+    c(t) = \cos(2\pi(20k)t)
+\hhh{Input Signals}
+
+\end{equation}
 \end{document}
 
 
